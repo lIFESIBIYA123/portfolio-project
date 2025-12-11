@@ -77,3 +77,27 @@ sqlite> .import --skip 1 data/performance_data.csv performance
 sqlite> .import --skip 1 data/league_data.csv league
 sqlite> .import --skip 1 data/team_data.csv team
 sqlite> .import --skip 1 data/team_player_data.csv team_player
+
+###########################################################
+ (Clean and Correct) THE DATA
+###########################################################
+
+Here’s the exact fix, used in real AutocratTech data pipelines when a wrong import corrupts a table.
+
+Step 1 — Drop the corrupted table:
+
+sqlite> DROP TABLE IF EXISTS team_player;
+
+Step 2 — Recreate the table cleanly
+CREATE TABLE team_player (
+   team_id INTEGER NOT NULL,
+   player_id INTEGER NOT NULL,
+   last_changed_date DATE NOT NULL,
+   PRIMARY KEY (team_id, player_id),
+   FOREIGN KEY(team_id) REFERENCES team (team_id),
+   FOREIGN KEY(player_id) REFERENCES player (player_id)
+);
+
+Step 3 — Verify the correct CSV structure BEFORE importing
+
+###########################################################
