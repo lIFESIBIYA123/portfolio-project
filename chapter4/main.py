@@ -81,7 +81,7 @@ def read_leagues(skip: int = 0,
                 league_name=league_name)
     return leagues
 
-@app.get("/v0/teams/", response_model=list[schemas.Team])
+@app.get("/v0/teams/", response_model=list[schemas.team])
 def read_teams(skip: int = 0,
                limit: int = 100,
                minimum_last_changed_date: date = None,
@@ -97,7 +97,7 @@ def read_teams(skip: int = 0,
     return teams
 
 
-@app.get("/v0/counts/", response_model=schemas.Counts)
+@app.get("/v0/counts/", response_model=schemas.Count)
 def get_count(db: Session = Depends(get_db)):
     counts = schemas.Counts(
         league_count = crud.get_league_count(db),

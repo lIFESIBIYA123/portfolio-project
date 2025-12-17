@@ -101,3 +101,6 @@ CREATE TABLE team_player (
 Step 3 — Verify the correct CSV structure BEFORE importing
 
 ###########################################################
+
+
+creaitng the fastapi controller in main.py
