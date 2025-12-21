@@ -104,3 +104,11 @@ Step 3 — Verify the correct CSV structure BEFORE importing
 
 
 creaitng the fastapi controller in main.py
+
+
+4️⃣ Add SQLite to Windows PATH (Critical Step)
+Press Win + R → type sysdm.cpl → Enter
+Go to Advanced → Environment Variables
+Under System variables, select Path
+Click Edit → New
+Add:

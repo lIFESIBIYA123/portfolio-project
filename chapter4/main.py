@@ -54,7 +54,7 @@ def read_performances(skip: int = 0,
                 limit: int = 100,
                 minimum_last_changed_date: date = None,
                 db: Session = Depends(get_db)):
-    performances = crud.get_performances(db,
+    performances = crud.get_performance(db,
                 skip=skip,
                 limit=limit,
                 min_last_changed_date=minimum_last_changed_date)
@@ -99,7 +99,7 @@ def read_teams(skip: int = 0,
 
 @app.get("/v0/counts/", response_model=schemas.Count)
 def get_count(db: Session = Depends(get_db)):
-    counts = schemas.Counts(
+    counts = schemas.Count(
         league_count = crud.get_league_count(db),
         team_count = crud.get_team_count(db),
         player_count = crud.get_player_count(db))
