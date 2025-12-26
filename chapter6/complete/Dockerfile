@@ -15,5 +15,7 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 COPY *.py /code/
 COPY *.db /code/
 
+EXPOSE 8080
+
 # Launch the Uvicorn webserver and run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
