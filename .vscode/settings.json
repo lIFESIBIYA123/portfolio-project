@@ -18,5 +18,11 @@
         "titleBar.inactiveBackground": "#42b88399",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#42b883"
+    "peacock.color": "#42b883",
+    "rainbow_csv.highlight_rows": true,
+    "rainbow_csv.virtual_alignment_mode": "always",
+    "rainbow_csv.virtual_alignment_vertical_grid": true,
+    "rainbow_csv.rbql_with_headers_by_default": true,
+    "rainbow_csv.enable_context_menu_head": true,
+    "rainbow_csv.enable_context_menu_tail": true
 }
