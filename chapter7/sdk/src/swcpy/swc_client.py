@@ -153,3 +153,21 @@ class SWCClent:
     #     recursive loop. Using the general syntax list = [expression
     #     for item in iterable], you can create lists from other lists
     #     very easily. 
+
+
+    ################################################################
+    # bulk download
+    ################################################################
+
+    def get_bulk_player_file(self) -> bytes: #1
+        """Returns a bulk file player data"""
+
+        logger.debug("Enter get bulk player file")
+
+        player_file_path = self.BULK_FILE_BASE_URL + self.BULK_FILE_NAMES["players"] #2
+
+        response = httpx.get(player_file_path, follow_redirects-True) #3
+
+        if response.status_code == 200:
+            logger.debug("File downloaded successfully")
+            return response.content #4
